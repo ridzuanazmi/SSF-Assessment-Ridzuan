@@ -21,7 +21,7 @@ public class PurchaseOrderService {
             String name = items.get(i).getItemName(); // name is the item Name for existing cart items 
             System.out.println(name); 
             if (name.equals(item.getItemName())) {
-                // add on to the existing list
+                // add to the list
                 Integer qty = items.get(i).getQuantity(); 
                 qty += item.getQuantity(); 
                 items.get(i).setQuantity(qty);

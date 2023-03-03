@@ -1,5 +1,7 @@
 package ssf.assessment.poapp.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,14 +13,20 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import ssf.assessment.poapp.Model.Cart;
 import ssf.assessment.poapp.Model.Delivery;
+import ssf.assessment.poapp.Model.Invoice;
 import ssf.assessment.poapp.Model.Item;
+import ssf.assessment.poapp.Model.Quotation;
 import ssf.assessment.poapp.Service.PurchaseOrderService;
+import ssf.assessment.poapp.Service.QuotationService;
 
 @Controller
 public class PurchaseOrderController {
 
     @Autowired
     private PurchaseOrderService pOrderService;
+
+    @Autowired
+    private QuotationService quotationService;
 
     @GetMapping(path = {"/", "index.html"})
     public String getView(Model model, HttpSession session) {
@@ -84,12 +92,20 @@ public class PurchaseOrderController {
     }
 
     @PostMapping("/quotation")
-    public String postQuotation(Model model, HttpSession session, @Valid Delivery delivery, BindingResult result) {
+    public String postQuotation(Model model, HttpSession session, @Valid Delivery delivery, BindingResult result) throws Exception {
 
         if (result.hasErrors()) return "view2";
 
         Cart cart = (Cart) session.getAttribute("cart");   
         Item item = (Item) session.getAttribute("item");
+
+        // List<String> items = quotationService.getList(cart);
+
+        // Quotation quotation = quotationService.getQuotations(items);
+
+        // Invoice invoice = quotationService.createInvoice(quotation, delivery, cart);
+        
+        // model.addAttribute("invoice", invoice); 
         
         model.addAttribute("item", item);
         model.addAttribute("cart", cart);
