@@ -95,7 +95,7 @@ public class QuotationService {
         return contentsString; 
     }
 
-    // method to calculate total cost  from the cart. could not complete as there is an error "because "nameOfItem" is null"
+    // method to calculate total cost  from the cart. could not complete as there is an error "because "nameOfItem" is null" 
     public Float calculateCost(Quotation quote, Cart cart) {
 
         List<Item> contents = cart.getContents(); 

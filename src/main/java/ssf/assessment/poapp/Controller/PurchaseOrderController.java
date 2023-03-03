@@ -99,6 +99,7 @@ public class PurchaseOrderController {
         Cart cart = (Cart) session.getAttribute("cart");   
         Item item = (Item) session.getAttribute("item");
 
+        // Not working codes. I really tried 
         // List<String> items = quotationService.getList(cart);
 
         // Quotation quotation = quotationService.getQuotations(items);
