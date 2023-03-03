@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View 2</title>
+</head>
+
+<body>
+
+    <h1>Shipping Address</h1>
+    <form method="post" th:action="@{/quotation}">
+        <div>
+            <table th:object="${delivery}">
+                <tr>
+                    <td><p style="color:red" th:errors="*{name}"></p></td>
+                </tr>
+                <tr>
+                    <td>
+                        Name:
+                    </td>
+                    <td>
+                        <input type="text" name="name" size="20" placeholder="name" data-th-field="*{name}">
+                    </td>
+                </tr>
+                <tr>
+                    <td><p style="color:red" th:errors="*{address}"></p></td>
+                </tr>
+                <tr>
+                    <td>
+                        Address:
+                    </td>
+                    <td>
+                        <input type="text" name="address" size="20" placeholder="address" data-th-field="*{address}">
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <button type="submit" formmethod="GET" formaction="/">Back</button>
+
+                <button type="submit">Place Order</button>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>
